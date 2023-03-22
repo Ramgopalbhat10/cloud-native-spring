@@ -14,15 +14,24 @@ configurations {
 	}
 }
 
+configurations.all {
+	resolutionStrategy {
+		force 'org.yaml:snakeyaml:2.0'
+	}
+}
+
 repositories {
 	mavenCentral()
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	implementation 'org.yaml:snakeyaml:2.0'
 }
 
 tasks.named('test') {
